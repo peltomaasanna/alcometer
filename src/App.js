@@ -19,12 +19,17 @@ function App() {
     let x = (burning * time);
     let gramsleft = (grams-x);  
     let alcohollevel = 0;
+    let value = 0;
    
     if (gender === 'male') {  
-      alcohollevel = (gramsleft / (weight * 0.7))
+      value = (gramsleft / (weight * 0.7))
+      if (value < 0) value = 0;
+      alcohollevel = value;
      
     } else {
-      alcohollevel  = (gramsleft / (weight * 0.6) )   
+      value = (gramsleft / (weight * 0.6) )  
+      if (value < 0) value = 0;
+      alcohollevel = value;  
     }
     setResult(alcohollevel.toFixed(2))
   }
